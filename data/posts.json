@@ -1,0 +1,12 @@
+[
+  {
+    "id": "welcome-post",
+    "type": "blog",
+    "title": "Welcome to my research notebook",
+    "date": "2026-07-27",
+    "image": "",
+    "excerpt": "This is where I'll share notes on NLP, sarcasm detection, and the odd DevOps rabbit hole. Posted from the admin panel — edit or delete this from there once you're logged in.",
+    "content": "This is where I'll share notes on NLP, sarcasm detection, and the odd DevOps rabbit hole. Posted from the admin panel — edit or delete this from there once you're logged in.",
+    "link": ""
+  }
+]

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Pulkit Mehndiratta</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-name">← Back to site</a>
+    <span style="font-family:var(--mono); font-size:0.78rem; color:var(--ink-soft)">Admin panel</span>
+  </div>
+</nav>
+
+<div class="admin-shell">
+
+  <div id="login-view" class="admin-card">
+    <h2>Sign in</h2>
+    <div class="warn-box">
+      This isn't a hosted login system — GitHub Pages can't run a server. Instead,
+      publishing works by committing directly to this repo using a GitHub
+      <strong>Personal Access Token</strong>. Create a <em>fine-grained</em> token
+      (Settings → Developer settings → Personal access tokens → Fine-grained tokens)
+      scoped to <strong>only this one repository</strong> with <strong>Contents: Read and write</strong>
+      permission, and give it a short expiry. Never share it, and don't paste it into any other site.
+      It's kept only in this browser tab's memory — it's not saved anywhere.
+    </div>
+    <div class="field">
+      <label for="token-input">GitHub Personal Access Token</label>
+      <input type="password" id="token-input" placeholder="github_pat_...">
+      <span class="field-hint">Repo: <span id="repo-name-display"></span></span>
+    </div>
+    <button class="btn" id="login-btn">Sign in</button>
+    <p class="status-msg" id="login-status"></p>
+  </div>
+
+  <div id="admin-view" style="display:none">
+
+    <div class="admin-card">
+      <h2>New post</h2>
+      <div class="type-toggle">
+        <button type="button" class="active" data-type="blog">Blog post</button>
+        <button type="button" data-type="linkedin">LinkedIn post</button>
+      </div>
+
+      <form id="post-form">
+        <div class="field">
+          <label for="f-title">Title</label>
+          <input type="text" id="f-title" required placeholder="e.g. New paper on sarcasm detection">
+        </div>
+
+        <div class="field" id="linkedin-url-field" style="display:none">
+          <label for="f-linkurl">LinkedIn post link</label>
+          <input type="url" id="f-linkurl" placeholder="https://www.linkedin.com/posts/...">
+          <span class="field-hint">
+            LinkedIn doesn't offer a public API to pull the post's content automatically,
+            so add the image and short text below yourself — they'll be shown in your
+            own layout (image on top, then the text) with a link back to the original post.
+          </span>
+        </div>
+
+        <div class="field">
+          <label for="f-image">Image URL <span style="font-weight:400">(shown first, at the top of the card)</span></label>
+          <input type="url" id="f-image" placeholder="https://...">
+        </div>
+
+        <div class="field">
+          <label for="f-content">Short text</label>
+          <textarea id="f-content" required placeholder="A couple of sentences — this shows under the image."></textarea>
+        </div>
+
+        <div class="field" id="blog-link-field">
+          <label for="f-bloglink">Link <span style="font-weight:400">(optional — e.g. full article, PDF, DOI)</span></label>
+          <input type="url" id="f-bloglink" placeholder="https://...">
+        </div>
+
+        <div class="field" id="embed-field" style="display:none">
+          <label for="f-embed">LinkedIn embed code <span style="font-weight:400">(optional)</span></label>
+          <textarea id="f-embed" placeholder="Paste the <iframe> code from the post's ⋯ menu → Embed this post, to also show the live LinkedIn embed below your summary."></textarea>
+        </div>
+
+        <button class="btn" type="submit" id="publish-btn">Publish</button>
+        <span class="status-msg" id="publish-status"></span>
+      </form>
+    </div>
+
+    <div class="admin-card">
+      <h2>Published posts</h2>
+      <div id="existing-posts"><p class="field-hint">Loading…</p></div>
+    </div>
+
+    <button class="btn secondary" id="logout-btn">Sign out</button>
+  </div>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
